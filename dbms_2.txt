@@ -1,0 +1,34 @@
+> create table employee(eid int primary key,ename varchar(21),salary varchar(21),did int,dname varchar(21),pname varchar(21));
+
+> create table project(pid int,pname varchar(21),pdesc varchar(21));
+
+> create table dept(did int,pid int,dname varchar(21),foreign key(did) references employee(eid));
+
+mysql> select * from employee
+    -> where pname like 'DS';
+
+mysql> select * from employee
+    -> where dname = 'COMP';
+
+mysql> select * from employee;
+
+mysql> select * from employee
+    -> where ename like "a%";
+
+mysql> select * from employee
+    -> order by ename;
+
+mysql> select ename from employee
+    -> where (dname!="MECH") & did = 1;
+
+mysql> select * from employee
+    -> where pname = "DS";
+
+mysql> select ename , max(salary) from employee
+    -> group by ename,dname;
+
+mysql> select pname from project
+    -> where pdesc = "SW";
+
+ select *  from project
+  where pcategory IN("SW")
